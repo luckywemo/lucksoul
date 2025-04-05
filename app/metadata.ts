@@ -5,6 +5,11 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
+export const metadata: Metadata = {
+  title: 'LuckSoul',
+  description: 'A decentralized gaming platform',
+};
+
 export async function generateMetadata(): Promise<Metadata> {
   const URL = process.env.NEXT_PUBLIC_URL;
   return {
