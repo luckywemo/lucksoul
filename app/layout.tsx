@@ -4,11 +4,9 @@ import "./theme.css";
 import "@coinbase/onchainkit/styles.css";
 import "./globals.css";
 import { Providers } from "./providers";
-import { WagmiProvider } from 'wagmi'
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import { config } from '@/lib/web3-config'
+import { Inter } from 'next/font/google';
 
-const queryClient = new QueryClient()
+const inter = Inter({ subsets: ['latin'] });
 
 export default function RootLayout({
   children,
@@ -17,12 +15,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
-        <WagmiProvider config={config}>
-          <QueryClientProvider client={queryClient}>
-            <Providers>{children}</Providers>
-          </QueryClientProvider>
-        </WagmiProvider>
+      <body className={inter.className}>
+        <Providers>
+          {children}
+        </Providers>
       </body>
     </html>
   );
